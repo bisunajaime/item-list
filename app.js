@@ -31,7 +31,7 @@ nightMode.addEventListener('click', function(e){
         body.classList.remove('active');
         body.classList.toggle('dark');
 
-        nightMode.innerHTML = "Day";
+        nightMode.innerHTML = "Night Mode Off";
     }else{
         var backCol = heading.style.backgroundColor = `rgb(${generateRandNum(150, 255)}, ${generateRandNum(150, 255)}, ${generateRandNum(150, 255)})`;
         var headCol = heading.style.color = `rgb(${generateRandNum(0, 100)}, ${generateRandNum(0, 100)}, ${generateRandNum(0, 100)})`;
@@ -46,7 +46,7 @@ nightMode.addEventListener('click', function(e){
         body.classList.remove('dark');
         body.classList.toggle('active');
 
-        nightMode.innerHTML = "Night";
+        nightMode.innerHTML = "Night Mode On";
     }
     heading.style.transition = '0.5s';
 });
