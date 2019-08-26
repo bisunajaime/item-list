@@ -1,0 +1,64 @@
+body {
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+h1 {
+    padding: 50px 0;
+}
+
+.fSize {
+    font-size: 4vw;
+}
+
+@media only screen and (max-width: 768px) {
+    .fSize {
+        font-size: 30px;
+        transition: 0.5s;
+    }
+
+    #h3 {
+        font-size: 20px;
+        transition: 0.5s;
+    }
+}
+
+.border-black {
+    padding: 20px 20px;
+    border: 1px solid #69F0AE;
+    border-radius: 5px;
+}
+
+.btn-green {
+    background-color: #69F0AE;
+}
+
+.btn-green:hover {
+    background-color: #00C853;
+    transition: 0.5s;
+}
+
+#heading {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.active {
+    transition: 0.5s;
+}
+
+.dark {
+    background-color: #212121;
+    transition: 0.5s;
+}
+
+.active-h3 {
+    color: #212121;
+    transition: 0.5s;
+}
+
+.dark-h3 {
+    color: white;
+    transition: 0.5s;
+}
