@@ -18,6 +18,16 @@
             padding: 50px 0;
         }
 
+        .fSize {
+            font-size: 4vw;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .fSize {
+                font-size: 30px;
+            }
+        }
+
         .border-black {
             padding: 20px 20px;
             border: 1px solid #69F0AE;
@@ -62,7 +72,7 @@
 </head>
 
 <body id="body" class="active">
-    <h1 style="background-color: #69F0AE;" class="display-3 text-center" id="heading">Item Lister</h1>
+    <h1 style="background-color: #69F0AE;" class="display-3 text-center fSize" id="heading">Item Lister</h1>
     <hr style="width: 80%;" id="hr">
     <div class="container">
         <button type="button" class="btn btn-block btn-secondary active" id="dark">Night</button><br>
