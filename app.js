@@ -8,6 +8,8 @@ var body = document.getElementById('body');
 var btnSubmit = document.getElementById('btnSubmit');
 var hr = document.querySelectorAll('[id=hr]');
 var borderBlk = document.getElementsByClassName('border-black');
+var input = document.getElementById('newInput');
+var prompt = document.getElementsByClassName('prompt');
 
 //form submit event
 form.addEventListener('submit', addItem);
@@ -16,6 +18,27 @@ itemList.addEventListener('click', removeItem);
 // filter event
 filter.addEventListener('keyup', filterItems);
 //
+input.addEventListener('click', function(e){
+    var br = document.createElement('br');
+    var label = document.createElement('label');
+    var inputField = document.createElement("input");
+    var container = document.getElementById('inputFields');
+    var limit = document.getElementsByClassName('add');
+    if(limit.length <= 4){
+        label.innerHTML = "New Input";
+        inputField.type = "text";
+        inputField.className = "form-control add";
+        inputField.name = "newInput";
+        inputField.id = "input";
+        container.appendChild(label);
+        container.appendChild(inputField)
+        container.appendChild(br);
+    }else{
+        prompt[0].classList.add('alert');
+        prompt[0].classList.add('alert-danger');
+        prompt[0].innerHTML = "Limit of 5 input fields";
+    }
+});
 nightMode.addEventListener('click', function(e){
     if (body.className == 'active') {
         var backCol = heading.style.backgroundColor = `rgb(${generateRandNum(0, 100)}, ${generateRandNum(0, 100)}, ${generateRandNum(0, 100)})`;
@@ -85,10 +108,19 @@ function addItem(e){
 
         //append li to list
         itemList.appendChild(li);
+        removePrompt();
     }else{
-        alert('Invalid input');
+        prompt[0].classList.add('alert');
+        prompt[0].classList.add('alert-danger');
+        prompt[0].innerHTML = "Invalid Input.";
     }
     document.getElementById('addform').reset();
+}
+
+function removePrompt(){
+    prompt[0].classList.remove('alert');
+    prompt[0].classList.remove('alert-danger');
+    prompt[0].innerHTML = "";
 }
 
 function removeItem(e){
@@ -113,7 +145,12 @@ function filterItems(e){
         var itemName = item.firstChild.textContent;
         if (itemName.toLowerCase().indexOf(text) != -1) {
             item.style.display = 'block';
+            removePrompt();
         }else{
+            prompt[0].classList.add('alert');
+            prompt[0].classList.add('alert-danger');
+            prompt[0].innerHTML = "Query not Found.";
+            prompt[0].style.transition = "0.25s";
             item.style.display = 'none';
         }
     })
