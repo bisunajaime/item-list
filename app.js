@@ -74,10 +74,10 @@ nightMode.addEventListener('click', function(e){
         body.classList.remove('active');
         body.classList.toggle('dark');
 
-        nightMode.innerHTML = `Night Mode Off (Colors: ${Math.round(rl)}, ${Math.round(gl)}, ${Math.round(bl)})`;
+        nightMode.innerHTML = `Night Mode Off`;
 
         colors.style.color = "white";
-        colors.innerHTML = `(Dark): RGB(${Math.round(rl)}, ${Math.round(gl)}, ${Math.round(bl)})`;
+        colors.innerHTML = `(Header): RGB(${Math.round(rl)}, ${Math.round(gl)}, ${Math.round(bl)}) <p>(Text): RGB(${Math.round(rd)}, ${Math.round(gd)}, ${Math.round(bd)})</p>`;
     }else{
         //dark
         var rd = generateRandNum(150, 255);
@@ -100,10 +100,10 @@ nightMode.addEventListener('click', function(e){
         body.classList.remove('dark');
         body.classList.toggle('active');
 
-        nightMode.innerHTML = `Night Mode On (Colors: ${Math.round(rd)}, ${Math.round(gd)}, ${Math.round(bd)})`;
+        nightMode.innerHTML = `Night Mode On`;
 
         colors.style.color = "black";
-        colors.innerHTML = `(Light): RGB(${Math.round(rd)}, ${Math.round(gd)}, ${Math.round(bd)})`;
+        colors.innerHTML = `(Header): RGB(${Math.round(rd)}, ${Math.round(gd)}, ${Math.round(bd)}) <br> <p>(Text): RGB(${Math.round(rl)}, ${Math.round(gl)}, ${Math.round(bl)})</p>`;
     }
     heading.style.transition = '0.5s';
 });
