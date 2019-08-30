@@ -10,7 +10,17 @@ var hr = document.querySelectorAll('[id=hr]');
 var borderBlk = document.getElementsByClassName('border-black');
 var input = document.getElementById('newInput');
 var prompt = document.getElementsByClassName('prompt');
+var item = document.getElementById('item');
+var color = document.getElementById('color');
 
+//validate input
+item.addEventListener('keyup', function(e){
+    if (parseInt(item.value) > 10 || parseInt(item.value) < 0){
+        heading.innerHTML = "Invalid Input";
+    }else{
+        heading.innerHTML = "Item Lister";
+    }
+});
 //form submit event
 form.addEventListener('submit', addItem);
 //delete event
@@ -18,6 +28,7 @@ itemList.addEventListener('click', removeItem);
 // filter event
 filter.addEventListener('keyup', filterItems);
 //
+var counter = 0;
 input.addEventListener('click', function(e){
     var br = document.createElement('br');
     var label = document.createElement('label');
@@ -34,15 +45,24 @@ input.addEventListener('click', function(e){
         container.appendChild(inputField)
         container.appendChild(br);
     }else{
+        counter++;
         prompt[0].classList.add('alert');
         prompt[0].classList.add('alert-danger');
-        prompt[0].innerHTML = "Limit of 5 input fields";
+        prompt[0].innerHTML = `Limit of 5 input fields(<b>${counter}</b> times clicked)`;
     }
 });
 nightMode.addEventListener('click', function(e){
     if (body.className == 'active') {
-        var backCol = heading.style.backgroundColor = `rgb(${generateRandNum(0, 100)}, ${generateRandNum(0, 100)}, ${generateRandNum(0, 100)})`;
-        var headCol = heading.style.color = `rgb(${generateRandNum(150, 255)}, ${generateRandNum(150, 255)}, ${generateRandNum(150, 255)})`;
+        //dark
+        var rd = generateRandNum(150, 255);
+        var gd = generateRandNum(150, 255);
+        var bd = generateRandNum(150, 255);
+        //light
+        var rl = generateRandNum(0, 100);
+        var gl = generateRandNum(0, 100);
+        var bl = generateRandNum(0, 100);
+        var backCol = heading.style.backgroundColor = `rgb(${rl}, ${gl}, ${bl})`;
+        var headCol = heading.style.color = `rgb(${rd}, ${gd}, ${bd})`;
         btnSubmit.style.backgroundColor = headCol;
         btnSubmit.style.color = backCol;
         for(var i = 0; i < hr.length; i++){
@@ -54,10 +74,21 @@ nightMode.addEventListener('click', function(e){
         body.classList.remove('active');
         body.classList.toggle('dark');
 
-        nightMode.innerHTML = "Night Mode Off";
+        nightMode.innerHTML = `Night Mode Off (Colors: ${Math.round(rd)}, ${Math.round(gd)}, ${Math.round(bd)})`;
+
+        colors.style.color = "white";
+        colors.innerHTML = `(Light): ${rd}, ${gd}, ${bd}`;
     }else{
-        var backCol = heading.style.backgroundColor = `rgb(${generateRandNum(150, 255)}, ${generateRandNum(150, 255)}, ${generateRandNum(150, 255)})`;
-        var headCol = heading.style.color = `rgb(${generateRandNum(0, 100)}, ${generateRandNum(0, 100)}, ${generateRandNum(0, 100)})`;
+        //dark
+        var rd = generateRandNum(150, 255);
+        var gd = generateRandNum(150, 255);
+        var bd = generateRandNum(150, 255);
+        //light
+        var rl = generateRandNum(0, 100);
+        var gl = generateRandNum(0, 100);
+        var bl = generateRandNum(0, 100);
+        var backCol = heading.style.backgroundColor = `rgb(${rd}, ${gd}, ${bd})`;
+        var headCol = heading.style.color = `rgb(${rl}, ${gl}, ${bl})`;
         btnSubmit.style.backgroundColor = headCol;
         btnSubmit.style.color = backCol;
         for (var i = 0; i < hr.length; i++) {
@@ -69,7 +100,10 @@ nightMode.addEventListener('click', function(e){
         body.classList.remove('dark');
         body.classList.toggle('active');
 
-        nightMode.innerHTML = "Night Mode On";
+        nightMode.innerHTML = `Night Mode On (Colors: ${Math.round(rd)}, ${Math.round(gd)}, ${Math.round(bd)})`;
+
+        colors.style.color = "black";
+        colors.innerHTML = `(Dark): ${rd}, ${gd}, ${bd}`;
     }
     heading.style.transition = '0.5s';
 });
@@ -143,7 +177,7 @@ function filterItems(e){
     // Convert to array
     Array.from(items).forEach(function(item){
         var itemName = item.firstChild.textContent;
-        if (itemName.toLowerCase().indexOf(text) != -1) {
+        if (itemName.toLowerCase().indexOf(text) > -1) {
             item.style.display = 'block';
             removePrompt();
         }else{
@@ -153,6 +187,5 @@ function filterItems(e){
             prompt[0].style.transition = "0.25s";
             item.style.display = 'none';
         }
-    })
-    
+    });
 }
