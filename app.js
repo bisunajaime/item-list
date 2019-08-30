@@ -74,10 +74,10 @@ nightMode.addEventListener('click', function(e){
         body.classList.remove('active');
         body.classList.toggle('dark');
 
-        nightMode.innerHTML = `Night Mode Off (Colors: ${Math.round(rd)}, ${Math.round(gd)}, ${Math.round(bd)})`;
+        nightMode.innerHTML = `Night Mode Off (Colors: ${Math.round(rl)}, ${Math.round(gl)}, ${Math.round(bl)})`;
 
         colors.style.color = "white";
-        colors.innerHTML = `(Light): ${rd}, ${gd}, ${bd}`;
+        colors.innerHTML = `(Dark): RGB(${Math.round(rl)}, ${Math.round(gl)}, ${Math.round(bl)})`;
     }else{
         //dark
         var rd = generateRandNum(150, 255);
@@ -103,7 +103,7 @@ nightMode.addEventListener('click', function(e){
         nightMode.innerHTML = `Night Mode On (Colors: ${Math.round(rd)}, ${Math.round(gd)}, ${Math.round(bd)})`;
 
         colors.style.color = "black";
-        colors.innerHTML = `(Dark): ${rd}, ${gd}, ${bd}`;
+        colors.innerHTML = `(Light): RGB(${Math.round(rd)}, ${Math.round(gd)}, ${Math.round(bd)})`;
     }
     heading.style.transition = '0.5s';
 });
