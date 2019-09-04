@@ -55,10 +55,14 @@ nightMode.addEventListener('click', function(e){
     if (body.className == 'active') {
         //light
         var light = generateRandNum(150, 255);
+        var light1 = generateRandNum(150, 255);
+        var light2 = generateRandNum(150, 255);
         //dark
         var dark = generateRandNum(0, 100);
-        var backCol = heading.style.backgroundColor = `rgb(${light}, ${light}, ${light})`;
-        var headCol = heading.style.color = `rgb(${dark}, ${dark}, ${dark})`;
+        var dark1 = generateRandNum(0, 100);
+        var dark2 = generateRandNum(0, 100);
+        var backCol = heading.style.backgroundColor = `rgb(${light}, ${light1}, ${light2})`;
+        var headCol = heading.style.color = `rgb(${dark}, ${dark1}, ${dark2})`;
         btnSubmit.style.backgroundColor = headCol;
         btnSubmit.style.color = backCol;
         for(var i = 0; i < hr.length; i++){
@@ -77,8 +81,12 @@ nightMode.addEventListener('click', function(e){
     }else{
         //light
         var light = generateRandNum(150, 255);
+        var light1 = generateRandNum(150, 255);
+        var light2 = generateRandNum(150, 255);
         //dark
         var dark = generateRandNum(0, 100);
+        var dark1 = generateRandNum(0, 100);
+        var dark2 = generateRandNum(0, 100);
         var backCol = heading.style.backgroundColor = `rgb(${light}, ${light}, ${light})`;
         var headCol = heading.style.color = `rgb(${dark}, ${dark}, ${dark})`;
         btnSubmit.style.backgroundColor = headCol;
