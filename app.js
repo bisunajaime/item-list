@@ -53,16 +53,12 @@ input.addEventListener('click', function(e){
 });
 nightMode.addEventListener('click', function(e){
     if (body.className == 'active') {
-        //dark
-        var rd = generateRandNum(150, 255);
-        var gd = generateRandNum(150, 255);
-        var bd = generateRandNum(150, 255);
         //light
-        var rl = generateRandNum(0, 100);
-        var gl = generateRandNum(0, 100);
-        var bl = generateRandNum(0, 100);
-        var backCol = heading.style.backgroundColor = `rgb(${rl}, ${gl}, ${bl})`;
-        var headCol = heading.style.color = `rgb(${rd}, ${gd}, ${bd})`;
+        var light = generateRandNum(150, 255);
+        //dark
+        var dark = generateRandNum(0, 100);
+        var backCol = heading.style.backgroundColor = `rgb(${light}, ${light}, ${light})`;
+        var headCol = heading.style.color = `rgb(${dark}, ${dark}, ${dark})`;
         btnSubmit.style.backgroundColor = headCol;
         btnSubmit.style.color = backCol;
         for(var i = 0; i < hr.length; i++){
@@ -79,16 +75,12 @@ nightMode.addEventListener('click', function(e){
         colors.style.color = "white";
         colors.innerHTML = `(Header): RGB(${Math.round(rl)}, ${Math.round(gl)}, ${Math.round(bl)}) <p>(Text): RGB(${Math.round(rd)}, ${Math.round(gd)}, ${Math.round(bd)})</p>`;
     }else{
-        //dark
-        var rd = generateRandNum(150, 255);
-        var gd = generateRandNum(150, 255);
-        var bd = generateRandNum(150, 255);
         //light
-        var rl = generateRandNum(0, 100);
-        var gl = generateRandNum(0, 100);
-        var bl = generateRandNum(0, 100);
-        var backCol = heading.style.backgroundColor = `rgb(${rd}, ${gd}, ${bd})`;
-        var headCol = heading.style.color = `rgb(${rl}, ${gl}, ${bl})`;
+        var light = generateRandNum(150, 255);
+        //dark
+        var dark = generateRandNum(0, 100);
+        var backCol = heading.style.backgroundColor = `rgb(${light}, ${light}, ${light})`;
+        var headCol = heading.style.color = `rgb(${dark}, ${dark}, ${dark})`;
         btnSubmit.style.backgroundColor = headCol;
         btnSubmit.style.color = backCol;
         for (var i = 0; i < hr.length; i++) {
