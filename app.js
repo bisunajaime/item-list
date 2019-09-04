@@ -87,8 +87,8 @@ nightMode.addEventListener('click', function(e){
         var dark = generateRandNum(0, 100);
         var dark1 = generateRandNum(0, 100);
         var dark2 = generateRandNum(0, 100);
-        var backCol = heading.style.backgroundColor = `rgb(${light}, ${light}, ${light})`;
-        var headCol = heading.style.color = `rgb(${dark}, ${dark}, ${dark})`;
+        var backCol = heading.style.backgroundColor = `rgb(${light}, ${light1}, ${light2})`;
+        var headCol = heading.style.color = `rgb(${dark}, ${dark1}, ${dark2})`;
         btnSubmit.style.backgroundColor = headCol;
         btnSubmit.style.color = backCol;
         for (var i = 0; i < hr.length; i++) {
